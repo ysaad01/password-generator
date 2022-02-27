@@ -28,12 +28,12 @@ function generatePassword() {
   if (!newPwLength) {
     alert("Enter a valid number.");
     return "Password length has not been set."
-  } else if (parseInt(newPwLength) < 8) {
+  } else if (newPwLength < 8) {
     alert("That is not within the password limit. Please try again.");
-    generatePassword();
-  } else if (parseInt(newPwLength) > 128) {
+    return "Invalid password length. Please try again.";
+  } else if (newPwLength > 128) {
     alert("That is not within the password limit. Please try again.");
-    generatePassword();
+    return "Invalid password length. Please try again.";
   }
   
   // user entered valid character response
