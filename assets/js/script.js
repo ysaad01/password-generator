@@ -50,7 +50,30 @@ function generatePassword() {
       alert("You must choose a selection. Please try again.");
       return "No selection made. No password generated"
     }
+
+    // validate user input 
+    if (hasLower) {
+      selectedOptions.push(...lowerCaseLetter);
+    }
+    if (hasUpper) {
+      selectedOptions.push(...upperCaseLetter);
+    }
+    if (hasNumber) {
+      selectedOptions.push(...number);
+    }
+    if (hasCharacter) {
+      selectedOptions.push(...specialCharacter);
+    }
+
+    // randomize password characters
+    for (var i = 0; i < newPwLength; i++) {
+      var randomIndex = Math.floor(Math.random() * selectedOptions.length);
+      var randomCharacter = selectedOptions[randomIndex];
+      finalPass = finalPass + randomCharacter;
+    }
+
   }
+  return finalPass;
 };
 
 
